@@ -3,13 +3,22 @@ layout: default
 ---
 
 <div class="home-shell">
-  <section class="home-hero">
-    <p class="home-eyebrow">Literature, Photography, Travel</p>
-    <h1 class="home-title">{{ site.title }}</h1>
-    <p class="home-tagline">{{ site.description }}</p>
+  <section class="home-masthead">
+    <div class="home-banner">
+      <img
+        src="{{ '/photos/IMG_20220707_134745.jpg' | relative_url }}"
+        alt="A calm coastal landscape with clear water, open sky, and distant headlands."
+      >
+    </div>
 
-    <div class="home-intro">
-      {{ content }}
+    <div class="home-hero">
+      <p class="home-eyebrow">Literature, Photography, Travel</p>
+      <h1 class="home-title">{{ site.title }}</h1>
+      <p class="home-tagline">{{ site.description }}</p>
+
+      <div class="home-intro">
+        {{ content }}
+      </div>
     </div>
   </section>
 

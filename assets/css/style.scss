@@ -68,13 +68,43 @@ a:hover {
   margin: 0 auto;
 }
 
-.home-hero {
-  padding: 3rem;
+.home-masthead {
+  overflow: hidden;
   border: 1px solid rgba(95, 70, 49, 0.15);
   border-radius: 1.5rem;
   background:
-    linear-gradient(135deg, rgba(255, 250, 243, 0.9), rgba(244, 233, 218, 0.92));
+    linear-gradient(135deg, rgba(255, 250, 243, 0.94), rgba(244, 233, 218, 0.94));
   box-shadow: 0 1.5rem 3.5rem rgba(80, 58, 36, 0.08);
+}
+
+.home-banner {
+  position: relative;
+  height: 15rem;
+  overflow: hidden;
+  background: #d8e6ef;
+}
+
+.home-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(23, 32, 41, 0.06) 0%, transparent 24%, rgba(36, 27, 21, 0.18) 100%);
+}
+
+.home-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 56%;
+  filter: saturate(0.92) contrast(1.02);
+  transform: scale(1.01);
+}
+
+.home-hero {
+  padding: 3rem;
+  background: transparent;
 }
 
 .home-eyebrow,
@@ -240,6 +270,10 @@ blockquote {
     padding: 2rem 1.5rem;
   }
 
+  .home-banner {
+    height: 12rem;
+  }
+
   .home-pilgrims,
   .post-feed {
     grid-template-columns: 1fr;
@@ -249,6 +283,10 @@ blockquote {
 @media screen and (max-width: 600px) {
   .page-content {
     padding-top: 2rem;
+  }
+
+  .home-banner {
+    height: 10rem;
   }
 
   .home-title {
