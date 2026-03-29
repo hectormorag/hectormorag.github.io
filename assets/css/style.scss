@@ -3,14 +3,27 @@
 
 @import "minima";
 
+:root {
+  --paper: #f4ecdf;
+  --paper-deep: #e8dcc9;
+  --panel: rgba(255, 249, 241, 0.9);
+  --panel-strong: rgba(255, 250, 244, 0.96);
+  --ink: #241b15;
+  --ink-soft: #574636;
+  --accent: #7b5d44;
+  --line: rgba(95, 70, 49, 0.16);
+  --line-strong: rgba(95, 70, 49, 0.24);
+  --shadow: rgba(80, 58, 36, 0.08);
+}
+
 html {
   background:
-    radial-gradient(circle at top, rgba(214, 186, 146, 0.2), transparent 32rem),
+    radial-gradient(circle at top, rgba(214, 186, 146, 0.26), transparent 30rem),
     linear-gradient(180deg, #f5efe3 0%, #efe5d6 100%);
 }
 
 body {
-  color: #2d241d;
+  color: var(--ink);
   background: transparent;
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 1.125rem;
@@ -18,44 +31,98 @@ body {
 }
 
 a {
-  color: #5f4631;
+  color: var(--accent);
 }
 
 a:hover {
-  color: #2d241d;
+  color: var(--ink);
   text-decoration-thickness: 2px;
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   border-top: 0;
-  border-bottom: 1px solid rgba(95, 70, 49, 0.2);
+  border-bottom: 1px solid var(--line);
   background: rgba(250, 245, 238, 0.85);
   backdrop-filter: blur(12px);
 }
 
-.site-title,
-.site-title:visited {
-  color: #2d241d;
+.site-chrome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.site-brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.site-brand:hover {
+  text-decoration: none;
+}
+
+.site-brand-mark {
+  color: var(--ink);
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-  font-size: 1.55rem;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 0.92;
+}
+
+.site-brand-note {
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+.site-nav {
+  max-width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
 .site-nav .page-link {
-  color: #5f4631;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 249, 241, 0.75);
+  color: var(--accent);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-nav .page-link:hover,
+.site-nav .page-link.is-active {
+  color: #fff8ef;
+  background: var(--ink);
+  border-color: var(--ink);
 }
 
 .page-content {
-  padding: 3.5rem 0 5rem;
+  padding: 3rem 0 5rem;
 }
 
 .wrapper {
-  max-width: calc(1120px - (30px * 2));
-}
-
-.site-title {
-  letter-spacing: 0.02em;
+  max-width: calc(1180px - (30px * 2));
 }
 
 .post-content,
@@ -63,54 +130,47 @@ a:hover {
   max-width: 46rem;
 }
 
-.home-shell {
+.home-shell,
+.section-shell {
   max-width: 70rem;
   margin: 0 auto;
 }
 
 .home-masthead {
+  position: relative;
   overflow: hidden;
-  border: 1px solid rgba(95, 70, 49, 0.15);
+  padding: 3rem;
+  border: 1px solid var(--line);
   border-radius: 1.5rem;
   background:
-    linear-gradient(135deg, rgba(255, 250, 243, 0.94), rgba(244, 233, 218, 0.94));
-  box-shadow: 0 1.5rem 3.5rem rgba(80, 58, 36, 0.08);
+    linear-gradient(135deg, rgba(255, 250, 243, 0.97), rgba(244, 233, 218, 0.95));
+  box-shadow: 0 1.5rem 3.5rem var(--shadow);
 }
 
-.home-banner {
-  position: relative;
-  height: 15rem;
-  overflow: hidden;
-  background: #d8e6ef;
-}
-
-.home-banner::after {
+.home-masthead::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -8rem;
+  right: -6rem;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
   background:
-    linear-gradient(180deg, rgba(23, 32, 41, 0.06) 0%, transparent 24%, rgba(36, 27, 21, 0.18) 100%);
-}
-
-.home-banner img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 56%;
-  filter: saturate(0.92) contrast(1.02);
-  transform: scale(1.01);
+    radial-gradient(circle, rgba(191, 164, 130, 0.2), rgba(191, 164, 130, 0) 68%);
+  pointer-events: none;
 }
 
 .home-hero {
-  padding: 3rem;
+  position: relative;
   background: transparent;
 }
 
 .home-eyebrow,
 .section-label,
 .post-meta,
-.post-card-link {
+.post-card-link,
+.section-kicker {
+  color: var(--accent);
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -118,72 +178,100 @@ a:hover {
 
 .home-eyebrow {
   margin-bottom: 0.75rem;
-  color: #7b5d44;
   font-size: 0.8rem;
 }
 
 .home-title {
   margin: 0;
+}
+
+.home-title-line {
+  display: block;
+  color: var(--ink);
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-  font-size: clamp(2.75rem, 6vw, 5rem);
-  line-height: 0.95;
-  color: #241b15;
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 0.84;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.home-title-line.is-last {
+  padding-left: 1.1rem;
+  color: var(--accent);
+  font-style: italic;
+  letter-spacing: -0.02em;
 }
 
 .home-tagline {
-  max-width: 32rem;
-  margin: 1.25rem 0 0;
-  color: #5c4a3b;
-  font-size: 1.3rem;
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.35rem;
   line-height: 1.65;
 }
 
 .home-intro {
-  max-width: 40rem;
+  max-width: 46rem;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(95, 70, 49, 0.18);
+  border-top: 1px solid var(--line);
 }
 
 .home-intro p:last-child {
   margin-bottom: 0;
 }
 
-.home-pilgrims {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.75rem;
+.home-directory,
+.home-feed,
+.section-feed {
+  margin-top: 2.5rem;
 }
 
-.theme-card,
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.directory-card,
 .post-card {
   padding: 1.5rem;
-  border: 1px solid rgba(95, 70, 49, 0.14);
+  border: 1px solid var(--line);
   border-radius: 1.25rem;
-  background: rgba(255, 250, 244, 0.9);
+  background: var(--panel);
   box-shadow: 0 0.75rem 2rem rgba(80, 58, 36, 0.06);
 }
 
-.theme-card h2,
+.directory-card {
+  color: inherit;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.directory-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 1.1rem 2.4rem rgba(80, 58, 36, 0.1);
+  text-decoration: none;
+}
+
+.directory-card h3,
 .section-heading h2,
+.section-title,
 .post-card-title {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 }
 
-.theme-card h2 {
-  margin-bottom: 0.75rem;
-  font-size: 1.4rem;
+.directory-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.45rem;
+  color: var(--ink);
 }
 
-.theme-card p,
+.directory-card p,
 .post-card-excerpt {
   margin: 0;
   color: #4e3e31;
-}
-
-.home-feed {
-  margin-top: 3.5rem;
 }
 
 .section-heading {
@@ -192,14 +280,13 @@ a:hover {
 
 .section-label {
   margin: 0 0 0.45rem;
-  color: #7b5d44;
   font-size: 0.75rem;
 }
 
 .section-heading h2 {
   margin: 0;
   font-size: 2rem;
-  color: #241b15;
+  color: var(--ink);
 }
 
 .post-feed {
@@ -210,7 +297,6 @@ a:hover {
 
 .post-meta {
   margin-bottom: 0.6rem;
-  color: #7b5d44;
   font-size: 0.75rem;
 }
 
@@ -221,7 +307,7 @@ a:hover {
 }
 
 .post-card-title a {
-  color: #241b15;
+  color: var(--ink);
   text-decoration: none;
 }
 
@@ -233,7 +319,6 @@ a:hover {
 .post-card-link {
   display: inline-block;
   margin-top: 1rem;
-  color: #5f4631;
   font-size: 0.78rem;
   text-decoration: none;
 }
@@ -242,9 +327,84 @@ a:hover {
   text-decoration: underline;
 }
 
+.section-hero {
+  padding: 2.4rem;
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 243, 0.96), rgba(244, 233, 218, 0.92));
+  box-shadow: 0 1.2rem 3rem var(--shadow);
+}
+
+.section-kicker {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.9rem, 7vw, 5rem);
+  line-height: 0.95;
+}
+
+.section-deck {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.section-body {
+  max-width: 48rem;
+  margin-top: 2rem;
+}
+
 .empty-state {
   margin: 0;
   color: #5c4a3b;
+}
+
+.section-note {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.section-note code,
+.section-body code {
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.35rem;
+  background: rgba(95, 70, 49, 0.08);
+  color: var(--ink);
+}
+
+.photo-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.photo-feature {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--panel-strong);
+  box-shadow: 0 0.9rem 2.2rem rgba(80, 58, 36, 0.06);
+}
+
+.photo-feature img {
+  display: block;
+  width: 100%;
+  border-radius: 0.9rem;
+  box-shadow: 0 1rem 2rem rgba(40, 50, 60, 0.08);
+}
+
+.photo-caption {
+  margin-top: 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
 }
 
 .post-content h1,
@@ -253,7 +413,7 @@ a:hover {
 .page-content h1,
 .page-content h2,
 .page-content h3 {
-  color: #241b15;
+  color: var(--ink);
   line-height: 1.2;
 }
 
@@ -265,16 +425,27 @@ blockquote {
   padding: 1rem 1.25rem;
 }
 
+@media screen and (max-width: 980px) {
+  .site-chrome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+  }
+
+  .directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media screen and (max-width: 860px) {
-  .home-hero {
+  .home-masthead,
+  .section-hero {
     padding: 2rem 1.5rem;
   }
 
-  .home-banner {
-    height: 12rem;
-  }
-
-  .home-pilgrims,
   .post-feed {
     grid-template-columns: 1fr;
   }
@@ -285,15 +456,23 @@ blockquote {
     padding-top: 2rem;
   }
 
-  .home-banner {
-    height: 10rem;
+  .site-brand-note {
+    font-size: 0.72rem;
   }
 
-  .home-title {
-    font-size: 2.6rem;
+  .directory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-title-line {
+    font-size: 3.4rem;
   }
 
   .home-tagline {
     font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2.7rem;
   }
 }

@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<article class="section-shell">
+  <header class="section-hero">
+    {% if page.kicker %}
+      <p class="section-kicker">{{ page.kicker }}</p>
+    {% endif %}
+
+    <h1 class="section-title">{{ page.title }}</h1>
+
+    {% if page.deck %}
+      <p class="section-deck">{{ page.deck }}</p>
+    {% endif %}
+  </header>
+
+  <div class="section-body">
+    {{ content }}
+  </div>
+
+  {% unless page.show_posts == false %}
+    {% if page.section_mode == "all" %}
+      {% assign entries = site.posts %}
+    {% else %}
+      {% assign entries = site.categories[page.category_key] %}
+    {% endif %}
+
+    <section class="section-feed">
+      <div class="section-heading">
+        <p class="section-label">Entries</p>
+        <h2>In this section</h2>
+      </div>
+
+      {% if entries and entries.size > 0 %}
+        <div class="post-feed">
+          {% for post in entries %}
+            <article class="post-card">
+              <p class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+              <h3 class="post-card-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+              </h3>
+              <p class="post-card-excerpt">
+                {{ post.excerpt | strip_html | strip_newlines | truncatewords: 30 }}
+              </p>
+              <a class="post-card-link" href="{{ post.url | relative_url }}">Read post</a>
+            </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty-state">{{ page.empty_message | default: "Entries will appear here soon." }}</p>
+      {% endif %}
+
+      {% if page.category_key and page.section_mode != "all" %}
+        <p class="section-note">
+          To file a post here, add <code>categories: [{{ page.category_key }}]</code> to the post front matter.
+        </p>
+      {% endif %}
+    </section>
+  {% endunless %}
+</article>

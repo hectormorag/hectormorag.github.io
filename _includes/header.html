@@ -1,0 +1,20 @@
+<header class="site-header" role="banner">
+  <div class="wrapper site-chrome">
+    <a class="site-brand" rel="author" href="{{ '/' | relative_url }}">
+      <span class="site-brand-mark">{{ site.title | escape }}</span>
+      <span class="site-brand-note">A warm archive of notes, images, and far-off things.</span>
+    </a>
+
+    {% assign page_paths = site.header_pages %}
+    <nav class="site-nav" aria-label="Primary">
+      <div class="nav-links">
+        {% for path in page_paths %}
+          {% assign my_page = site.pages | where: "path", path | first %}
+          {% if my_page.title %}
+            <a class="page-link{% if page.url == my_page.url %} is-active{% endif %}" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
+</header>

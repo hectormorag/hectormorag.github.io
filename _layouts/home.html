@@ -4,16 +4,14 @@ layout: default
 
 <div class="home-shell">
   <section class="home-masthead">
-    <div class="home-banner">
-      <img
-        src="{{ '/photos/IMG_20220707_134745.jpg' | relative_url }}"
-        alt="A calm coastal landscape with clear water, open sky, and distant headlands."
-      >
-    </div>
-
     <div class="home-hero">
-      <p class="home-eyebrow">Literature, Photography, Travel</p>
-      <h1 class="home-title">{{ site.title }}</h1>
+      <p class="home-eyebrow">Blog, Library, Movies, Music, Games, Traveling, Science, Photos</p>
+      {% assign title_words = site.title | split: ' ' %}
+      <h1 class="home-title">
+        {% for word in title_words %}
+          <span class="home-title-line{% if forloop.last %} is-last{% endif %}">{{ word }}</span>
+        {% endfor %}
+      </h1>
       <p class="home-tagline">{{ site.description }}</p>
 
       <div class="home-intro">
@@ -22,35 +20,58 @@ layout: default
     </div>
   </section>
 
-  <section class="home-pilgrims">
-    <article class="theme-card">
-      <h2>Literature</h2>
-      <p>
-        Reading notes, close observations, and essays shaped by the books that stay
-        open on the desk long after the last page.
-      </p>
-    </article>
+  <section class="home-directory">
+    <div class="section-heading">
+      <p class="section-label">Sections</p>
+      <h2>Browse the rooms</h2>
+    </div>
 
-    <article class="theme-card">
-      <h2>Photography</h2>
-      <p>
-        Images, process notes, and reflections on light, framing, attention, and the
-        slow craft of seeing well.
-      </p>
-    </article>
+    <div class="directory-grid">
+      <a class="directory-card" href="{{ '/blog/' | relative_url }}">
+        <h3>Blog</h3>
+        <p>The full stream of posts, notes, and essays.</p>
+      </a>
 
-    <article class="theme-card">
-      <h2>Travel</h2>
-      <p>
-        Field notes from places near and far, with room for landscapes, transit, and
-        the small details that make a journey memorable.
-      </p>
-    </article>
+      <a class="directory-card" href="{{ '/library/' | relative_url }}">
+        <h3>Library</h3>
+        <p>Reading notes, marginalia, and books worth returning to.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/movies/' | relative_url }}">
+        <h3>Movies</h3>
+        <p>Films, scenes, and reflections that stay in the mind.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/music/' | relative_url }}">
+        <h3>Music</h3>
+        <p>Albums, pieces, and listening notes gathered over time.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/games/' | relative_url }}">
+        <h3>Games</h3>
+        <p>Games as places, systems, moods, and stories.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/traveling/' | relative_url }}">
+        <h3>Traveling</h3>
+        <p>Routes, landscapes, and small observations from the road.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/science/' | relative_url }}">
+        <h3>Science</h3>
+        <p>Questions, ideas, and curious things worth understanding better.</p>
+      </a>
+
+      <a class="directory-card" href="{{ '/photos/' | relative_url }}">
+        <h3>Photos</h3>
+        <p>A visual archive of places, light, weather, and distance.</p>
+      </a>
+    </div>
   </section>
 
   <section class="home-feed">
     <div class="section-heading">
-      <p class="section-label">Journal</p>
+      <p class="section-label">Latest</p>
       <h2>Recent Posts</h2>
     </div>
 

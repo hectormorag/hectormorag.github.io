@@ -3,4 +3,4 @@ layout: home
 title: Home
 ---
 
-Far Ends is a quiet notebook for reading, photographs, and places passed through with care. I wanted the homepage to feel calm and grounded: something closer to a study or travel journal than a fast-moving feed.
+Far Ends is a quiet journal for books, films, music, games, journeys, scientific curiosities, and photographs worth keeping. I want it to feel warm and thoughtful: more like a shelf, notebook, and map table gathered into one place than a scrolling feed.
