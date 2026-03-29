@@ -1,5 +1,5 @@
 title: "Far Ends"
-description: "Literature, films, music, games, travel, science, and photographs kept with care."
+description: "A quiet journal of writing, journeys, and things worth keeping."
 url: "https://hectormorag.github.io"
 theme: minima
 markdown: kramdown
@@ -7,11 +7,5 @@ author: "YOUR_NAME"
 header_pages:
   - index.md
   - blog.md
-  - about.md
-  - library.md
-  - movies.md
-  - music.md
-  - games.md
   - traveling.md
-  - science.md
-  - photos.md
+  - media.md

@@ -15,7 +15,7 @@ layout: default
     {% endif %}
   </header>
 
-  <div class="section-body">
+  <div class="section-body{% if page.wide_body %} is-wide{% endif %}">
     {{ content }}
   </div>
 
