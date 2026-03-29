@@ -3,9 +3,55 @@
 
 @import "minima";
 
+html {
+  background:
+    radial-gradient(circle at top, rgba(214, 186, 146, 0.2), transparent 32rem),
+    linear-gradient(180deg, #f5efe3 0%, #efe5d6 100%);
+}
+
 body {
+  color: #2d241d;
+  background: transparent;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 1.125rem;
   line-height: 1.8;
+}
+
+a {
+  color: #5f4631;
+}
+
+a:hover {
+  color: #2d241d;
+  text-decoration-thickness: 2px;
+}
+
+.site-header {
+  border-top: 0;
+  border-bottom: 1px solid rgba(95, 70, 49, 0.2);
+  background: rgba(250, 245, 238, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.site-title,
+.site-title:visited {
+  color: #2d241d;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.site-nav .page-link {
+  color: #5f4631;
+}
+
+.page-content {
+  padding: 3.5rem 0 5rem;
+}
+
+.wrapper {
+  max-width: calc(1120px - (30px * 2));
 }
 
 .site-title {
@@ -15,4 +61,201 @@ body {
 .post-content,
 .page-content {
   max-width: 46rem;
+}
+
+.home-shell {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.home-hero {
+  padding: 3rem;
+  border: 1px solid rgba(95, 70, 49, 0.15);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 243, 0.9), rgba(244, 233, 218, 0.92));
+  box-shadow: 0 1.5rem 3.5rem rgba(80, 58, 36, 0.08);
+}
+
+.home-eyebrow,
+.section-label,
+.post-meta,
+.post-card-link {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-eyebrow {
+  margin-bottom: 0.75rem;
+  color: #7b5d44;
+  font-size: 0.8rem;
+}
+
+.home-title {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: 0.95;
+  color: #241b15;
+}
+
+.home-tagline {
+  max-width: 32rem;
+  margin: 1.25rem 0 0;
+  color: #5c4a3b;
+  font-size: 1.3rem;
+  line-height: 1.65;
+}
+
+.home-intro {
+  max-width: 40rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(95, 70, 49, 0.18);
+}
+
+.home-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.home-pilgrims {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.theme-card,
+.post-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(95, 70, 49, 0.14);
+  border-radius: 1.25rem;
+  background: rgba(255, 250, 244, 0.9);
+  box-shadow: 0 0.75rem 2rem rgba(80, 58, 36, 0.06);
+}
+
+.theme-card h2,
+.section-heading h2,
+.post-card-title {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+.theme-card h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.theme-card p,
+.post-card-excerpt {
+  margin: 0;
+  color: #4e3e31;
+}
+
+.home-feed {
+  margin-top: 3.5rem;
+}
+
+.section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.section-label {
+  margin: 0 0 0.45rem;
+  color: #7b5d44;
+  font-size: 0.75rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #241b15;
+}
+
+.post-feed {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.post-meta {
+  margin-bottom: 0.6rem;
+  color: #7b5d44;
+  font-size: 0.75rem;
+}
+
+.post-card-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+
+.post-card-title a {
+  color: #241b15;
+  text-decoration: none;
+}
+
+.post-card-title a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(95, 70, 49, 0.5);
+}
+
+.post-card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #5f4631;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.post-card-link:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  margin: 0;
+  color: #5c4a3b;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.page-content h1,
+.page-content h2,
+.page-content h3 {
+  color: #241b15;
+  line-height: 1.2;
+}
+
+blockquote {
+  color: #5c4a3b;
+  border-left: 4px solid rgba(95, 70, 49, 0.28);
+  background: rgba(255, 250, 244, 0.75);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1rem 1.25rem;
+}
+
+@media screen and (max-width: 860px) {
+  .home-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .home-pilgrims,
+  .post-feed {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-content {
+    padding-top: 2rem;
+  }
+
+  .home-title {
+    font-size: 2.6rem;
+  }
+
+  .home-tagline {
+    font-size: 1.1rem;
+  }
 }

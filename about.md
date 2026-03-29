@@ -6,4 +6,4 @@ permalink: /about/
 
 ## Intro
 
-Welcome to Far Ends. This is a personal space for notes, projects, ideas, and experiments collected along the way.
+Welcome to Far Ends. This is a personal space for literature notes, photography reflections, and travel writing gathered with a calm, attentive pace.
